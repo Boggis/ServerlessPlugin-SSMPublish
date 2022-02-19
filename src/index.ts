@@ -232,12 +232,12 @@ class ServerlessSSMPublish {
       putResults.length > 0
         ? (markdownTable([
             ['Path', 'Secure', 'Version', 'Tier', 'Type'],
-            ...putResults.map(({ Version, Tier }, i) =>
+            ...putResults.map(({ Version }, i) =>
               ([
                 toUpdate[i].path,
                 toUpdate[i].secure,
                 Version ? Version : '',
-                Tier ? Tier : '',
+                toUpdate[i].tier,
                 toUpdate[i].type,
               ]) as string[]),
           ]))
